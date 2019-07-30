@@ -27,4 +27,7 @@ services:
 
   node:
     image: node
+    working_dir: /var/www/html
+    volumes:
+      - ./repository:/var/www/html
     tty: true
