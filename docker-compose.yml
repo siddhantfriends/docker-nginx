@@ -26,7 +26,7 @@ services:
       - ./repository:/var/www/html
 
   node:
-    image: node
+    build: ./build/node
     working_dir: /var/www/html
     volumes:
       - ./repository:/var/www/html
