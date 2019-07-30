@@ -1,0 +1,8 @@
+# Ignore everything:
+/*
+
+# Except
+!.gitignore
+!default.conf.example
+!phpinfo5.conf
+!phpinfo7.conf

@@ -1,0 +1,30 @@
+version: '3'
+services:
+  nginx:
+    build: ./build/nginx
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./repository:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - php7
+      - php5
+      - node
+    links:
+      - php7
+      - php5
+    
+  php7:
+    build: ./build/php7
+    volumes:
+      - ./repository:/var/www/html
+
+  php5:
+    build: ./build/php5
+    volumes:
+      - ./repository:/var/www/html
+
+  node:
+    image: node
+    tty: true
