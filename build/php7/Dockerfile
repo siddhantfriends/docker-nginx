@@ -1,4 +1,4 @@
-FROM    php:7.1-fpm
+FROM    php:7.3-fpm
 LABEL   maintainer="Siddhant Baviskar <@siddhantfriends>"
 
 RUN     pecl install xdebug && docker-php-ext-enable xdebug \ 
