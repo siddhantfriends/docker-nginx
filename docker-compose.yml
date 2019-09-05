@@ -3,7 +3,8 @@ services:
   nginx:
     build: ./build/nginx
     volumes:
-      - ./config/nginx:/etc/nginx/conf.d
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/conf.d:/etc/nginx/conf.d
       - ./repository:/var/www/html
     ports:
       - 80:80
