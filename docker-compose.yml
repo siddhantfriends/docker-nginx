@@ -16,6 +16,7 @@ services:
         aliases:
           - phpinfo5.test
           - phpinfo7.test
+
     
   php7:
     build: ./build/php7
@@ -38,11 +39,26 @@ services:
     build: ./build/mariadb
     volumes:
       - ./database:/var/lib/mysql
+      - ./repository:/var/www/html
     ports:
       - 3306:3306
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    networks: 
+      - default
+  
+  memcached:
+    image: memcached:latest
+    environment:
+      - MEMCACHED_CACHE_SIZE=128
+      - MEMCACHED_MAX_CONNECTIONS=2000
+      - MEMCACHED_THREADS=4
+    ports: 
+      - 11211:11211
+    networks: 
+      - default
 
 networks:
   default:
     driver: bridge
+    
