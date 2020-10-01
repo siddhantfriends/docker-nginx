@@ -25,6 +25,7 @@ services:
   php5:
     build: ./build/php5
     volumes:
+      - ./config/php-fpm.d/5.www.conf:/usr/local/etc/php-fpm.d/www.conf
       - ./repository:/var/www/html
 
   node:
