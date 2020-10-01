@@ -52,9 +52,20 @@ services:
       - MEMCACHED_CACHE_SIZE=128
       - MEMCACHED_MAX_CONNECTIONS=2000
       - MEMCACHED_THREADS=4
-    ports: 
+    ports:
       - 11211:11211
-    networks: 
+    networks:
+      - default
+
+  phpmyadmin:
+    build: ./build/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    ports:
+      - 8080:80
+    depends_on:
+      - mariadb
+    networks:
       - default
 
 networks:
