@@ -17,4 +17,5 @@ RUN     cd ~ && curl -sS https://getcomposer.org/installer -o composer-setup.php
         && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN     mkdir -p /var/lib/php/sessions && chmod a+rwx /var/lib/php/sessions \
         && cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
-        && echo "session.save_path = \"/var/lib/php/sessions\"" >> /usr/local/etc/php/php.ini
+        && echo "session.save_path = \"/var/lib/php/sessions\"" >> /usr/local/etc/php/php.ini \
+        && echo "always_populate_raw_post_data = -1" >> /usr/local/etc/php/php.ini
