@@ -17,7 +17,6 @@ services:
           - phpinfo5.test
           - phpinfo7.test
 
-    
   php7:
     build: ./build/php7
     volumes:
@@ -46,9 +45,9 @@ services:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
     networks: 
       - default
-  
+
   memcached:
-    image: memcached:latest
+    build: ./build/memcached
     environment:
       - MEMCACHED_CACHE_SIZE=128
       - MEMCACHED_MAX_CONNECTIONS=2000
@@ -61,4 +60,3 @@ services:
 networks:
   default:
     driver: bridge
-    
