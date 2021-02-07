@@ -69,8 +69,6 @@ services:
     build: ./build/phpmyadmin
     environment:
       - PMA_ARBITRARY=1
-    ports:
-      - 8080:80
     depends_on:
       - mariadb
     networks:
@@ -80,7 +78,6 @@ services:
     build: ./build/mailhog
     ports:
       - 1025:1025
-      - 8025:8025
     networks:
       - default
 

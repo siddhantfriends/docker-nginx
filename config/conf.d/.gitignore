@@ -6,3 +6,6 @@
 !default.conf.example
 !phpinfo5.conf
 !phpinfo7.conf
+!phpinfo8.conf
+!phpmyadmin.conf
+!mailhog.conf
