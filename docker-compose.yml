@@ -11,11 +11,18 @@ services:
     depends_on:
       - php7
       - php5
+      - php8
     networks:
       default:
         aliases:
           - phpinfo5.test
           - phpinfo7.test
+          - phpinfo8.test
+
+  php8:
+    build: ./build/php8
+    volumes:
+      - ./repository:/var/www/html
 
   php7:
     build: ./build/php7
