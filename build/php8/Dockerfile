@@ -10,3 +10,4 @@ RUN     cd ~ && curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN     mkdir -p /var/lib/php/sessions && chmod a+rwx /var/lib/php/sessions \
         && cp /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini \
         && echo "session.save_path = \"/var/lib/php/sessions\"" >> /usr/local/etc/php/php.ini
+RUN     apt-get update && apt-get install -y git zip unzip php-zip
