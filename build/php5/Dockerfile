@@ -10,8 +10,7 @@ RUN     docker-php-ext-install opcache
 RUN     apt-get install -y libmemcached-dev \
         && apt-get -y install autoconf make gcc g++ \
         && echo "no --disable-memcached-sasl" | pecl install memcached-2.2.0 \
-        && docker-php-ext-enable memcached \
-        && echo "extension=memcached.so" >> /usr/local/etc/php/conf.d/docker-php-ext-memcached.ini
+        && docker-php-ext-enable memcached
 RUN     docker-php-ext-install mcrypt pcntl pdo pdo_mysql gd 
 RUN     cd ~ && curl -sS https://getcomposer.org/installer -o composer-setup.php \
         && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
