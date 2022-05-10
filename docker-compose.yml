@@ -81,6 +81,17 @@ services:
     networks:
       - default
 
+  jupyter:
+    build: ./build/jupyter
+    volumes:
+      - ./notebooks:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=jupyter
+    ports:
+      - 8888:8888
+    networks:
+      - default
+
 networks:
   default:
     driver: bridge
